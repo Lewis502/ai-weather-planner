@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI-Enhanced Weather Impact Planner</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #2c3e50;
+            background-color: #f9f9fb;
+        }
+        h1, h2, h3, h4 {
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        /* Input Section */
+        .input-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        select, button {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #dcdde1;
+            font-size: 18px;
+            background-color: #f0f0f5;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+            cursor: pointer;
+        }
+        /* Report Styles */
+        #report {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        .section-title {
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .executive-summary, .strategic-recommendations, .next-steps, .ai-possibilities {
+            background-color: #f6f8fa;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 40px;
+            border-radius: 5px;
+        }
+        /* Tables and Lists */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+            font-size: 16px;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+        .impact-high {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .impact-medium {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .impact-low {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .efficiency-high {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .efficiency-medium {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .efficiency-low {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        /* Chart Styles */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin-bottom: 40px;
+        }
+        /* Copy Button */
+        .copy-button {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .copy-button:hover {
+            background-color: #27ae60;
+            cursor: pointer;
+        }
+        /* AI Possibilities */
+        .ai-possibilities ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        /* Increase Font Size */
+        body, select, button, table, p, li {
+            font-size: 18px;
+        }
+        /* Input Labels */
+        .input-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        /* Accessibility Focus */
+        select:focus, button:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <h1>AI-Enhanced Weather Impact Planner</h1>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <h2>About This Tool</h2>
+        <p>This tool demonstrates the potential of AI-powered decision support systems. It provides a simplified example of how businesses can leverage AI to analyze weather forecasts and generate actionable insights.</p>
+    </div>
+
+    <!-- Input Section -->
+    <div class="input-section">
+        <h2>Select Parameters</h2>
+        <div id="weatherImpactForm">
+            <label for="industry" class="input-label">Industry</label>
+            <select id="industry" required>
+                <option value="">Select an Industry</option>
+                <option value="Construction">🏗️ Construction</option>
+                <option value="Agriculture">🌾 Agriculture</option>
+                <option value="Retail">🛍️ Retail</option>
+                <option value="Energy">⚡ Energy</option>
+                <option value="Logistics">🚚 Logistics</option>
+            </select>
+
+            <label for="location" class="input-label">Location</label>
+            <select id="location" required>
+                <option value="">Select a Location</option>
+                <option value="New York">🗽 New York</option>
+                <option value="Los Angeles">🌴 Los Angeles</option>
+                <option value="Chicago">🌭 Chicago</option>
+                <option value="Houston">🤠 Houston</option>
+                <option value="Phoenix">🏜️ Phoenix</option>
+            </select>
+
+            <label for="forecastPeriod" class="input-label">Forecast Period</label>
+            <select id="forecastPeriod" required>
+                <option value="">Select Forecast Period</option>
+                <option value="7">📅 7 Days</option>
+                <option value="14">📅 14 Days</option>
+                <option value="30">📅 30 Days</option>
+            </select>
+
+            <button id="generateReport">Generate Report</button>
+        </div>
+    </div>
+
+    <!-- Report Section -->
+    <div id="report"></div>
+
+    <!-- AI Possibilities Section -->
+    <div class="ai-possibilities">
+        <h2>🚀 Exploring AI Possibilities</h2>
+        <p>This tool showcases just a glimpse of what's possible with AI. Consider these potential expansions:</p>
+        <ul>
+            <li>🌐 Integration with real-time global weather data and satellite imagery</li>
+            <li>🧠 Deep learning models for more accurate impact predictions</li>
+            <li>📱 Mobile app with push notifications for critical weather alerts</li>
+            <li>🤝 Collaborative features for team decision-making</li>
+            <li>🔗 API connections to your existing business intelligence tools</li>
+        </ul>
+        <p>The future of AI-assisted decision-making is limited only by our imagination and ethical considerations. How might you adapt this concept to revolutionize planning in your industry?</p>
+    </div>
+
+    <!-- Script Section -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('generateReport').addEventListener('click', function() {
+                try {
+                    const industry = document.getElementById('industry').value;
+                    const location = document.getElementById('location').value;
+                    const forecastPeriod = document.getElementById('forecastPeriod').value;
+
+                    if (!industry || !location || !forecastPeriod) {
+                        alert('Please fill out all fields before generating the report.');
+                        return;
+                    }
+
+                    const weatherData = generateWeatherData(parseInt(forecastPeriod));
+
+                    const report = generateStrategicReport(industry, location, forecastPeriod, weatherData);
+
+                    document.getElementById('report').innerHTML = report;
+
+                    // Generate Charts
+                    generateCharts(weatherData);
+
+                } catch (error) {
+                    console.error('Error generating report:', error);
+                    alert('An error occurred while generating the report. Please check the console for details.');
+                }
+            });
+        });
+
+        function generateWeatherData(days) {
+            const weatherConditions = ['Sunny', 'Rainy', 'Cloudy', 'Windy', 'Stormy'];
+            const weatherData = [];
+            for (let i = 0; i < days; i++) {
+                // Generate temperatures in Fahrenheit between 50°F and 95°F
+                const tempFahrenheit = Math.floor(Math.random() * 46) + 50;
+
+                weatherData.push({
+                    day: i + 1,
+                    condition: weatherConditions[Math.floor(Math.random() * weatherConditions.length)],
+                    temperature: tempFahrenheit,
+                    precipitation: Math.floor(Math.random() * 101)
+                });
+            }
+            return weatherData;
+        }
+
+        function generateStrategicReport(industry, location, forecastPeriod, weatherData) {
+            const avgEfficiency = calculateAverageEfficiency(industry, weatherData);
+            const executiveSummary = generateExecutiveSummary(industry, location, forecastPeriod, avgEfficiency);
+            const weatherForecast = generateWeatherForecast(weatherData);
+            const impactsAndRecommendations = generateImpactsAndRecommendations(industry, weatherData);
+            const efficiencyInsights = generateDetailedEfficiencyInsights(industry, weatherData);
+            const strategicRecommendations = generateStrategicRecommendations(industry, weatherData, avgEfficiency);
+
+            return `
+                <div class="executive-summary">
+                    <h2 class="section-title">Executive Summary</h2>
+                    ${executiveSummary}
+                </div>
+
+                <h2 class="section-title">Weather Forecast Overview</h2>
+                ${weatherForecast}
+
+                <div class="chart-container">
+                    <canvas id="weatherChart"></canvas>
+                </div>
+
+                <h2 class="section-title">Key Impacts and Recommendations</h2>
+                <ul>
+                    ${impactsAndRecommendations}
+                </ul>
+
+                <h2 class="section-title">Operational Efficiency Insights</h2>
+                <p>Based on the weather forecast, we've estimated potential impacts on operational efficiency:</p>
+                ${efficiencyInsights}
+
+                <div class="strategic-recommendations">
+                    <h2 class="section-title">Strategic Recommendations</h2>
+                    ${strategicRecommendations}
+                </div>
+
+                <div class="next-steps">
+                    <h2 class="section-title">Next Steps</h2>
+                    <ol>
+                        <li>Review and validate the identified impacts with your operational teams.</li>
+                        <li>Integrate weather-aware strategies into your daily planning processes.</li>
+                        <li>Monitor real-time weather updates and adjust plans accordingly.</li>
+                        <li>Conduct post-analysis to measure the effectiveness of weather-based decisions.</li>
+                    </ol>
+                </div>
+
+                <button class="copy-button" onclick="copyToClipboard()">Copy Report to Clipboard</button>
+            `;
+        }
+
+        function generateExecutiveSummary(industry, location, forecastPeriod, avgEfficiency) {
+            return `
+                <p>This ${forecastPeriod}-day strategic weather impact analysis for the <strong>${industry}</strong> sector in <strong>${location}</strong> indicates an average operational efficiency of <span class="${getEfficiencyClass(avgEfficiency)}">${avgEfficiency.toFixed(2)}%</span>. Key weather patterns suggest potential for both operational challenges and opportunities. Strategic adaptation of processes could mitigate risks and capitalize on favorable conditions.</p>
+            `;
+        }
+
+        function generateWeatherForecast(weatherData) {
+            let tableRows = weatherData.map(day => `
+                <tr>
+                    <td>Day ${day.day}</td>
+                    <td>${getWeatherIcon(day.condition)} ${day.condition}</td>
+                    <td>${day.temperature}°F</td>
+                    <td>${day.precipitation}%</td>
+                </tr>
+            `).join('');
+
+            return `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Condition</th>
+                            <th>Temperature</th>
+                            <th>Precipitation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableRows}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function generateImpactsAndRecommendations(industry, weatherData) {
+            let impacts = '';
+            weatherData.forEach(day => {
+                let impact = '';
+                let severity = 'low';
+                if (day.condition === 'Rainy' || day.condition === 'Stormy') {
+                    impact = `Adverse weather conditions may affect operations. Consider implementing contingency plans and reinforcing safety protocols.`;
+                    severity = 'high';
+                } else if (day.temperature > 90) {
+                    impact = `High temperatures may impact productivity. Ensure proper hydration stations and adjust work schedules to cooler hours if possible.`;
+                    severity = 'medium';
+                } else if (day.condition === 'Sunny' && day.temperature > 80) {
+                    impact = `Favorable conditions for outdoor operations. Consider increasing productivity targets and optimizing resource allocation.`;
+                    severity = 'low';
+                }
+                if (impact) impacts += `<li class="impact-${severity}">Day ${day.day}: ${impact}</li>`;
+            });
+            return impacts || '<li>No significant weather impacts predicted for the selected period.</li>';
+        }
+
+        function calculateEfficiency(day, industry) {
+            let efficiency = 100; // Start with 100% efficiency
+
+            if (day.condition === 'Rainy' || day.condition === 'Stormy') {
+                efficiency -= 30; // Decrease efficiency due to bad weather
+            }
+            if (day.temperature > 90) {
+                efficiency -= 15; // Decrease efficiency due to high temperature
+            }
+            if (day.condition === 'Sunny' && day.temperature > 80) {
+                efficiency += 10; // Increase efficiency due to favorable conditions
+            }
+
+            // Ensure efficiency stays within 0-100%
+            efficiency = Math.max(0, Math.min(100, efficiency));
+
+            return efficiency;
+        }
+
+        function calculateAverageEfficiency(industry, weatherData) {
+            let totalEfficiency = weatherData.reduce((sum, day) => sum + calculateEfficiency(day, industry), 0);
+            return totalEfficiency / weatherData.length;
+        }
+
+        function generateDetailedEfficiencyInsights(industry, weatherData) {
+            let insights = '<table><thead><tr><th>Day</th><th>Efficiency</th></tr></thead><tbody>';
+            let totalEfficiency = 0;
+            weatherData.forEach(day => {
+                let efficiency = calculateEfficiency(day, industry);
+                totalEfficiency += efficiency;
+                insights += `<tr><td>Day ${day.day}</td><td class="${getEfficiencyClass(efficiency)}">${efficiency.toFixed(2)}%</td></tr>`;
+            });
+            let averageEfficiency = totalEfficiency / weatherData.length;
+            insights = `<tr><td><strong>Average Efficiency</strong></td><td class="${getEfficiencyClass(averageEfficiency)}"><strong>${averageEfficiency.toFixed(2)}%</strong></td></tr>` + insights;
+            insights += '</tbody></table>';
+            return insights;
+        }
+
+        function generateStrategicRecommendations(industry, weatherData, avgEfficiency) {
+            let recommendations = '';
+            if (avgEfficiency < 70) {
+                recommendations += '<li>Implement robust contingency plans to mitigate the impact of adverse weather conditions.</li>';
+                recommendations += '<li>Invest in weather-resistant equipment and technologies to improve resilience.</li>';
+            } else if (avgEfficiency < 85) {
+                recommendations += '<li>Optimize resource allocation based on daily weather forecasts to maximize productivity.</li>';
+                recommendations += '<li>Develop flexible work schedules to adapt to changing weather patterns.</li>';
+            } else {
+                recommendations += '<li>Capitalize on favorable weather conditions by increasing production or service delivery targets.</li>';
+                recommendations += '<li>Invest in staff training to maintain high efficiency levels across various weather scenarios.</li>';
+            }
+            return `<ul>${recommendations}</ul>`;
+        }
+
+        function getEfficiencyClass(efficiency) {
+            if (efficiency >= 85) return 'efficiency-high';
+            if (efficiency >= 70) return 'efficiency-medium';
+            return 'efficiency-low';
+        }
+
+        function getWeatherIcon(condition) {
+            switch(condition) {
+                case 'Sunny': return '☀️';
+                case 'Rainy': return '🌧️';
+                case 'Cloudy': return '☁️';
+                case 'Windy': return '💨';
+                case 'Stormy': return '⛈️';
+                default: return '🌤️';
+            }
+        }
+
+        function copyToClipboard() {
+            const reportElement = document.getElementById('report');
+            const range = document.createRange();
+            range.selectNode(reportElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('Report copied to clipboard!');
+        }
+
+        function generateCharts(weatherData) {
+            // Create temperature and precipitation arrays
+            const days = weatherData.map(day => `Day ${day.day}`);
+            const temperatures = weatherData.map(day => day.temperature);
+            const precipitation = weatherData.map(day => day.precipitation);
+
+            // Create canvas element
+            const canvas = document.getElementById('weatherChart');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas dimensions
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = 400;
+
+            // Draw chart background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Define chart parameters
+            const padding = 50;
+            const chartWidth = canvas.width - padding * 2;
+            const chartHeight = canvas.height - padding * 2;
+
+            // Find max values for scaling
+            const maxTemp = 100; // Maximum temperature for scaling
+            const minTemp = 50;  // Minimum temperature for scaling
+            const maxPrecipitation = 100;
+
+            // Draw axes
+            ctx.strokeStyle = '#bdc3c7';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(padding, padding);
+            ctx.lineTo(padding, canvas.height - padding);
+            ctx.lineTo(canvas.width - padding, canvas.height - padding);
+            ctx.stroke();
+
+            // Plot Temperature Line
+            ctx.strokeStyle = '#e74c3c';
+            ctx.beginPath();
+            for (let i = 0; i < temperatures.length; i++) {
+                const x = padding + (i * (chartWidth / (temperatures.length - 1)));
+                const y = (canvas.height - padding) - ((temperatures[i] - minTemp) * (chartHeight / (maxTemp - minTemp)));
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+
+            // Plot Precipitation Line
+            ctx.strokeStyle = '#3498db';
+            ctx.beginPath();
+            for (let i = 0; i < precipitation.length; i++) {
+                const x = padding + (i * (chartWidth / (precipitation.length - 1)));
+                const y = (canvas.height - padding) - ((precipitation[i]) * (chartHeight / maxPrecipitation));
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+
+            // Add legend
+            ctx.fillStyle = '#2c3e50';
+            ctx.font = '16px Calibri';
+            ctx.fillText('Temperature (°F)', padding + 10, padding - 20);
+            ctx.fillStyle = '#e74c3c';
+            ctx.fillRect(padding + 160, padding - 35, 15, 15);
+            ctx.fillStyle = '#2c3e50';
+            ctx.fillText('Precipitation (%)', padding + 190, padding - 20);
+            ctx.fillStyle = '#3498db';
+            ctx.fillRect(padding + 340, padding - 35, 15, 15);
+        }
+    </script>
+</body>
+</html>
